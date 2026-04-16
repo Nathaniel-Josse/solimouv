@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'À propos — Up Sport! & Solimouv\'',
-  description: 'Découvrez l\'association Up Sport! et l\'histoire du festival Solimouv\', engagés pour le sport inclusif à Paris.',
+  title: { absolute: "À Propos | Solimouv' Festival" },
+  description: "Découvrez l'association derrière le festival Solimouv', engagée pour un sport inclusif et accessible à tous à Paris.",
 }
 
 export default function AProposPage() {

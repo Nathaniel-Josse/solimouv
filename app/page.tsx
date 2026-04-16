@@ -5,8 +5,8 @@ import ExhibitorCard from '@/components/ExhibitorCard'
 import { createClient } from '@/lib/supabase/server'
 
 export const metadata: Metadata = {
-  title: 'Accueil — Solimouv\' Festival Up Sport!',
-  description: 'Bienvenue sur Solimouv\', le festival annuel sport & inclusion de l\'association Up Sport! à Paris.',
+  title: { absolute: "Festival du Sport Accessible à Tous | Solimouv' Festival" },
+  description: "Découvrez Solimouv' Festival, un événement sportif à Paris ouvert à tous : activités gratuites, inclusives et accessibles pour tous les publics.",
 }
 
 const FESTIVAL_DATE = '2026-06-21T10:00:00'
