@@ -1,0 +1,218 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "text": "Quel environnement te convient le mieux ?",
+      "icon": "🌍",
+      "answers": [
+        { "id": "1a", "text": "En plein air 🌳", "sports": ["football", "rugby", "course", "vtt", "cyclisme", "tennis"] },
+        { "id": "1b", "text": "En salle 🏟️", "sports": ["basketball", "handball", "yoga", "boxe", "danse", "badminton", "escalade", "arts_martiaux"] },
+        { "id": "1c", "text": "Dans l'eau 🌊", "sports": ["natation"] },
+        { "id": "1d", "text": "Les deux me conviennent 🤷", "sports": ["football", "basketball", "handball", "yoga", "boxe", "danse", "badminton", "escalade", "arts_martiaux", "natation", "course", "vtt", "tennis", "cyclisme", "rugby"] }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Quelle intensité physique tu recherches ?",
+      "icon": "💪",
+      "answers": [
+        { "id": "2a", "text": "Douce — je veux me détendre 🧘", "sports": ["yoga", "danse", "natation", "badminton"] },
+        { "id": "2b", "text": "Modérée — du mouvement sans m'épuiser 🚶", "sports": ["tennis", "danse", "natation", "course", "cyclisme", "escalade", "badminton"] },
+        { "id": "2c", "text": "Intense — je veux vraiment me dépenser 🔥", "sports": ["football", "basketball", "handball", "boxe", "rugby", "vtt", "arts_martiaux"] },
+        { "id": "2d", "text": "Variable — selon ma forme du jour ⚡", "sports": ["course", "natation", "yoga", "danse", "cyclisme"] }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "Tu préfères pratiquer...",
+      "icon": "👥",
+      "answers": [
+        { "id": "3a", "text": "Seul(e) — à mon rythme 🧍", "sports": ["yoga", "course", "natation", "cyclisme", "boxe"] },
+        { "id": "3b", "text": "En équipe — j'aime la cohésion de groupe 🤝", "sports": ["football", "basketball", "handball", "rugby", "danse"] },
+        { "id": "3c", "text": "En duo ou petit groupe 👫", "sports": ["tennis", "badminton", "escalade", "arts_martiaux"] },
+        { "id": "3d", "text": "Peu importe, l'important c'est de bouger !", "sports": ["football", "basketball", "handball", "yoga", "boxe", "danse", "badminton", "escalade", "arts_martiaux", "natation", "course", "vtt", "tennis", "cyclisme", "rugby"] }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "Comment tu te vois dans le sport ?",
+      "icon": "🎯",
+      "answers": [
+        { "id": "4a", "text": "Compétitif(ve) — j'aime gagner 🏆", "sports": ["football", "basketball", "handball", "tennis", "boxe", "rugby", "badminton", "arts_martiaux"] },
+        { "id": "4b", "text": "Je joue pour le plaisir avant tout 😄", "sports": ["yoga", "danse", "natation", "course", "vtt", "cyclisme"] },
+        { "id": "4c", "text": "Je cherche à me dépasser personnellement 📈", "sports": ["escalade", "arts_martiaux", "boxe", "course", "natation", "vtt"] },
+        { "id": "4d", "text": "Je veux rencontrer des gens et créer du lien 🌈", "sports": ["football", "basketball", "handball", "danse", "rugby"] }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "Ta relation au rythme et à la musique ?",
+      "icon": "🎵",
+      "answers": [
+        { "id": "5a", "text": "J'adore bouger au rythme de la musique 💃", "sports": ["danse", "arts_martiaux"] },
+        { "id": "5b", "text": "J'aime écouter de la musique en m'entraînant 🎧", "sports": ["course", "cyclisme", "natation", "yoga", "boxe"] },
+        { "id": "5c", "text": "Je n'ai pas besoin de musique, je me concentre 🧠", "sports": ["escalade", "tennis", "badminton", "yoga", "arts_martiaux"] },
+        { "id": "5d", "text": "Neutre — pas de préférence 🤷", "sports": ["football", "basketball", "handball", "rugby", "vtt"] }
+      ]
+    },
+    {
+      "id": 6,
+      "text": "Tu apprécies les sports de contact ?",
+      "icon": "🥊",
+      "answers": [
+        { "id": "6a", "text": "Oui, j'aime le contact physique 💥", "sports": ["rugby", "boxe", "handball", "football", "arts_martiaux"] },
+        { "id": "6b", "text": "Non, je préfère éviter le contact direct 🚫", "sports": ["yoga", "natation", "course", "cyclisme", "tennis", "badminton", "danse"] },
+        { "id": "6c", "text": "Un peu de contact, c'est OK 👌", "sports": ["basketball", "football", "escalade", "arts_martiaux"] },
+        { "id": "6d", "text": "Je ne sais pas encore 🤷", "sports": ["football", "basketball", "handball", "yoga", "boxe", "danse", "badminton", "escalade", "arts_martiaux", "natation", "course", "vtt", "tennis", "cyclisme", "rugby"] }
+      ]
+    },
+    {
+      "id": 7,
+      "text": "Quelle disponibilité as-tu pour la pratique sportive ?",
+      "icon": "📅",
+      "answers": [
+        { "id": "7a", "text": "Quelques minutes par jour ⏱️", "sports": ["yoga", "course", "danse"] },
+        { "id": "7b", "text": "1-2 séances par semaine 📆", "sports": ["natation", "tennis", "badminton", "escalade", "cyclisme"] },
+        { "id": "7c", "text": "3+ séances par semaine 🏋️", "sports": ["football", "basketball", "handball", "boxe", "arts_martiaux", "vtt", "rugby"] },
+        { "id": "7d", "text": "Quand j'ai le temps — en souplesse 😌", "sports": ["yoga", "danse", "natation", "course", "cyclisme"] }
+      ]
+    }
+  ],
+  "sports": [
+    {
+      "id": "football",
+      "name": "Football",
+      "emoji": "⚽",
+      "description": "Sport collectif par excellence, le football combine endurance, technique et esprit d'équipe.",
+      "intensity": "Modérée à intense",
+      "environment": "Extérieur",
+      "category": "Collectif"
+    },
+    {
+      "id": "basketball",
+      "name": "Basketball",
+      "emoji": "🏀",
+      "description": "Sport de salle dynamique qui développe la coordination, la rapidité et la cohésion d'équipe.",
+      "intensity": "Intense",
+      "environment": "Salle",
+      "category": "Collectif"
+    },
+    {
+      "id": "handball",
+      "name": "Handball",
+      "emoji": "🤾",
+      "description": "Sport collectif rapide qui combine endurance, puissance et précision.",
+      "intensity": "Intense",
+      "environment": "Salle",
+      "category": "Collectif"
+    },
+    {
+      "id": "tennis",
+      "name": "Tennis",
+      "emoji": "🎾",
+      "description": "Sport de raquette qui développe la coordination, l'agilité et la concentration.",
+      "intensity": "Modérée",
+      "environment": "Extérieur / Salle",
+      "category": "Individuel / Duo"
+    },
+    {
+      "id": "badminton",
+      "name": "Badminton",
+      "emoji": "🏸",
+      "description": "Sport de raquette rapide et accessible, excellent pour la réactivité et la coordination.",
+      "intensity": "Modérée",
+      "environment": "Salle",
+      "category": "Individuel / Duo"
+    },
+    {
+      "id": "yoga",
+      "name": "Yoga",
+      "emoji": "🧘",
+      "description": "Pratique alliant postures, respiration et méditation pour l'équilibre corps-esprit.",
+      "intensity": "Douce",
+      "environment": "Salle / Extérieur",
+      "category": "Individuel"
+    },
+    {
+      "id": "natation",
+      "name": "Natation",
+      "emoji": "🏊",
+      "description": "Sport complet qui sollicite tous les muscles en douceur, idéal pour toutes les morphologies.",
+      "intensity": "Modérée",
+      "environment": "Eau",
+      "category": "Individuel"
+    },
+    {
+      "id": "boxe",
+      "name": "Boxe",
+      "emoji": "🥊",
+      "description": "Art martial qui développe la coordination, la force, la discipline et la confiance en soi.",
+      "intensity": "Intense",
+      "environment": "Salle",
+      "category": "Individuel"
+    },
+    {
+      "id": "danse",
+      "name": "Danse",
+      "emoji": "💃",
+      "description": "Expression artistique et sportive qui développe la coordination, le rythme et la créativité.",
+      "intensity": "Modérée",
+      "environment": "Salle",
+      "category": "Individuel / Collectif"
+    },
+    {
+      "id": "vtt",
+      "name": "VTT",
+      "emoji": "🚵",
+      "description": "Cyclisme tout-terrain offrant sensations fortes et connexion avec la nature.",
+      "intensity": "Modérée à intense",
+      "environment": "Extérieur",
+      "category": "Individuel"
+    },
+    {
+      "id": "course",
+      "name": "Course à pied",
+      "emoji": "🏃",
+      "description": "Sport accessible à tous, la course développe l'endurance et le mental.",
+      "intensity": "Variable",
+      "environment": "Extérieur",
+      "category": "Individuel"
+    },
+    {
+      "id": "escalade",
+      "name": "Escalade",
+      "emoji": "🧗",
+      "description": "Sport de grimpe qui développe la force, la souplesse et la résolution de problèmes.",
+      "intensity": "Modérée",
+      "environment": "Salle / Extérieur",
+      "category": "Individuel"
+    },
+    {
+      "id": "arts_martiaux",
+      "name": "Arts martiaux",
+      "emoji": "🥋",
+      "description": "Disciplines combinant technique, discipline et philosophie pour le développement personnel.",
+      "intensity": "Modérée à intense",
+      "environment": "Salle",
+      "category": "Individuel"
+    },
+    {
+      "id": "rugby",
+      "name": "Rugby",
+      "emoji": "🏉",
+      "description": "Sport collectif de contact qui développe la force, l'esprit d'équipe et le respect.",
+      "intensity": "Intense",
+      "environment": "Extérieur",
+      "category": "Collectif"
+    },
+    {
+      "id": "cyclisme",
+      "name": "Cyclisme",
+      "emoji": "🚴",
+      "description": "Sport d'endurance sur route qui développe les capacités cardiovasculaires et l'autonomie.",
+      "intensity": "Modérée",
+      "environment": "Extérieur",
+      "category": "Individuel"
+    }
+  ]
+}
