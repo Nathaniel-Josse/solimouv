@@ -4,8 +4,8 @@ import ExhibitorCard from '@/components/ExhibitorCard'
 import ProgrammeFilters from './ProgrammeFilters'
 
 export const metadata: Metadata = {
-  title: 'Programme & Ateliers',
-  description: 'Découvrez le programme complet et tous les stands du festival Solimouv\'.',
+  title: { absolute: "Programme et Ateliers | Solimouv' Festival" },
+  description: "Consultez le programme des activités sportives gratuites à Paris du festival Solimouv' : ateliers, initiations et événements accessibles à tous.",
 }
 
 export default async function ProgrammePage({

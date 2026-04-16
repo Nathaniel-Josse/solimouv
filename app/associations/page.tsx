@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import { createClient } from '@/lib/supabase/server'
 
 export const metadata: Metadata = {
-  title: 'Associations partenaires',
-  description: 'Découvrez les associations partenaires du festival Solimouv\' qui oeuvrent pour l\'inclusion et le sport pour tous.',
+  title: { absolute: "Associations et Partenaires | Solimouv' Festival" },
+  description: "Découvrez les associations sportives inclusives partenaires de Solimouv' à Paris engagées pour un sport accessible à tous.",
 }
 
 export default async function AssociationsPage() {

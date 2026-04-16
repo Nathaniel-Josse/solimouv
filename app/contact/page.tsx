@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Contact',
-  description: 'Contactez l\'association Up Sport! pour toute question sur le festival Solimouv\'.',
+  title: { absolute: "Mon Compte | Solimouv' Festival" },
+  description: "Gérez votre participation au festival Solimouv' et retrouvez vos activités.",
 }
 
 export default function ContactPage() {
