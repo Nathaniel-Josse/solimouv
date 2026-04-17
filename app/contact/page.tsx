@@ -34,7 +34,7 @@ export default function ContactPage() {
               <div key={item.label} className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-sm">
                 <span className="text-xl">{item.icon}</span>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">{item.label}</p>
+                  <p className="text-sm font-semibold text-gray-600 uppercase tracking-wide">{item.label}</p>
                   {item.href ? (
                     <a href={item.href} className="text-primary font-medium hover:underline">
                       {item.value}
@@ -49,8 +49,8 @@ export default function ContactPage() {
 
           <div className="mt-6 p-4 bg-orange-50 border border-orange-200 rounded-xl">
             <p className="text-sm font-semibold text-festival-dark mb-1">Besoin d'aide avec votre compte ?</p>
-            <p className="text-xs text-gray-600 mb-3">Gérez vos activités, consultez votre programme et retrouvez toutes vos informations en un seul endroit.</p>
-            <Link href="/profil" className="text-xs font-semibold text-primary hover:underline">
+            <p className="text-sm text-gray-600 mb-3">Gérez vos activités, consultez votre programme et retrouvez toutes vos informations en un seul endroit.</p>
+            <Link href="/profil" className="text-sm font-semibold text-primary underline">
               Accéder à mon compte →
             </Link>
           </div>
@@ -105,7 +105,7 @@ export default function ContactPage() {
             <button type="submit" className="btn-primary w-full text-center">
               Envoyer ma demande ✉️
             </button>
-            <p className="text-xs text-gray-500 text-center">
+            <p className="text-sm text-gray-600 text-center">
               Ce formulaire ouvre votre client email. Nous faisons le maximum pour vous répondre rapidement.
             </p>
           </form>

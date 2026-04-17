@@ -54,7 +54,7 @@ export default async function ProgrammePage({
             <p className="section-subtitle max-w-2xl mx-auto">
               Découvrez toutes les activités sportives gratuites proposées lors du festival Solimouv'. Que vous veniez seul, en famille ou entre amis, explorez un programme conçu pour tous les niveaux, tous les âges et tous les profils. Ici, pas de pression : vous testez, vous découvrez, vous rencontrez.
             </p>
-            <p className="text-sm text-gray-500 mt-2">
+            <p className="text-sm text-gray-600 mt-2">
               {new Date(activeEvent.date).toLocaleDateString('fr-FR', {
                 weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
               })} · {activeEvent.location}
@@ -82,8 +82,8 @@ export default async function ProgrammePage({
       ) : (
         <div className="text-center py-20">
           <p className="text-5xl mb-4">🔍</p>
-          <p className="text-gray-500 font-medium mb-2">Aucune activité trouvée {category ? `dans cette catégorie` : ''}.</p>
-          <p className="text-sm text-gray-400">Le programme de la prochaine édition sera bientôt disponible.</p>
+          <p className="text-gray-600 font-medium mb-2">Aucune activité trouvée {category ? `dans cette catégorie` : ''}.</p>
+          <p className="text-sm text-gray-600">Le programme de la prochaine édition sera bientôt disponible.</p>
         </div>
       )}
     </div>

@@ -2,13 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   FONT FACES
+   ============================================================ */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  src: url('/fonts/BricolageGrotesque.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Luciole';
+  src: url('/fonts/Luciole-Regular.woff2') format('woff2'),
+       url('/fonts/Luciole-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Luciole';
+  src: url('/fonts/Luciole-Bold.woff2') format('woff2'),
+       url('/fonts/Luciole-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
 :root {
-  --primary: #E84C1D;
-  --primary-dark: #C73D15;
-  --secondary: #7C3AED;
-  --accent: #059669;
+  --primary: #C83A0A;
+  --primary-dark: #9B3008;
+  --pink: #FFADC9;
   --bg-warm: #FFFBF7;
   --text-dark: #1C1917;
+  --font-bricolage: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-luciole: 'Luciole', system-ui, sans-serif;
 }
 
 * {
@@ -22,28 +55,39 @@ html {
 body {
   background-color: var(--bg-warm);
   color: var(--text-dark);
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--font-luciole);
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-bricolage);
+}
+
+/* ============================================================
+   COMPONENT CLASSES
+   ============================================================ */
 @layer components {
   .btn-primary {
-    @apply bg-primary text-white font-semibold px-6 py-3 rounded-xl hover:bg-primary-dark transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 inline-block;
+    @apply bg-primary text-white font-semibold px-6 py-3 rounded-full hover:bg-primary-dark transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 inline-block;
+    font-family: var(--font-bricolage);
   }
 
   .btn-secondary {
-    @apply bg-secondary text-white font-semibold px-6 py-3 rounded-xl hover:bg-secondary-dark transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 inline-block;
+    @apply bg-secondary text-white font-semibold px-6 py-3 rounded-full hover:bg-secondary-dark transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 inline-block;
+    font-family: var(--font-bricolage);
   }
 
   .btn-outline {
-    @apply border-2 border-primary text-primary font-semibold px-6 py-3 rounded-xl hover:bg-primary hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 inline-block;
+    @apply border-2 border-primary text-primary font-semibold px-6 py-3 rounded-full hover:bg-primary hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 inline-block;
+    font-family: var(--font-bricolage);
   }
 
   .card {
-    @apply bg-white rounded-2xl shadow-md p-6;
+    @apply bg-white rounded-[14px] shadow-md p-6;
   }
 
   .section-title {
     @apply text-2xl md:text-3xl font-bold text-festival-dark mb-2;
+    font-family: var(--font-bricolage);
   }
 
   .section-subtitle {
@@ -51,7 +95,8 @@ body {
   }
 
   .input-field {
-    @apply w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors;
+    @apply w-full border border-gray-300 rounded-[14px] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors;
+    font-family: var(--font-luciole);
   }
 
   .label {
@@ -59,7 +104,32 @@ body {
   }
 }
 
-/* Skip navigation link for accessibility */
+/* ============================================================
+   ACCESSIBILITY
+   ============================================================ */
+
+/* Focus visible — visible ring for keyboard navigation */
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Suppress default outline only when :focus-visible is supported */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 .skip-link {
   position: absolute;
   top: -40px;
@@ -77,7 +147,9 @@ body {
   top: 0;
 }
 
-/* PWA install banner animation */
+/* ============================================================
+   PWA BANNER
+   ============================================================ */
 @keyframes slideUp {
   from { transform: translateY(100%); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }

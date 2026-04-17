@@ -111,12 +111,12 @@ export default function ProfilClient({
           <h1 className="text-2xl font-extrabold text-festival-dark">
             Bonjour, {displayName || 'aventurier(e)'} ! 👋
           </h1>
-          <p className="text-gray-500 text-sm">{user.email}</p>
+          <p className="text-gray-600 text-sm">{user.email}</p>
         </div>
       </header>
 
       {/* Tabs */}
-      <div className="flex gap-1 bg-gray-100 p-1 rounded-xl mb-8" role="tablist">
+      <div className="flex gap-1 bg-gray-100 p-1 rounded-xl mb-8" role="tablist" aria-label="Onglets du profil">
         {(['profil', 'favoris', 'tampon'] as const).map((tab) => (
           <button
             key={tab}
@@ -191,7 +191,7 @@ export default function ProfilClient({
             <dl className="space-y-1">
               {/* Display name */}
               <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                <dt className="text-sm font-semibold text-gray-500">Pseudo</dt>
+                <dt className="text-sm font-semibold text-gray-700">Pseudo</dt>
                 <dd className="text-sm text-festival-dark">
                   {editingName ? (
                     <div className="flex items-center gap-2">
@@ -204,10 +204,10 @@ export default function ProfilClient({
                         maxLength={40}
                         aria-label="Nouveau pseudo"
                       />
-                      <button onClick={saveDisplayName} disabled={savingName} className="text-xs font-semibold text-primary hover:underline disabled:opacity-50">
+                      <button onClick={saveDisplayName} disabled={savingName} className="text-sm font-semibold text-primary hover:underline disabled:opacity-50">
                         {savingName ? '…' : 'Sauver'}
                       </button>
-                      <button onClick={() => { setEditingName(false); setNameInput(displayName) }} className="text-xs text-gray-400 hover:text-gray-600">
+                      <button onClick={() => { setEditingName(false); setNameInput(displayName) }} className="text-sm text-gray-600 hover:text-gray-800">
                         Annuler
                       </button>
                     </div>
@@ -230,18 +230,18 @@ export default function ProfilClient({
 
               {/* Email (read-only) */}
               <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                <dt className="text-sm font-semibold text-gray-500">Email</dt>
+                <dt className="text-sm font-semibold text-gray-700">Email</dt>
                 <dd className="text-sm text-festival-dark">{user.email || '—'}</dd>
               </div>
 
               {/* Member since */}
               <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                <dt className="text-sm font-semibold text-gray-500">Membre depuis</dt>
+                <dt className="text-sm font-semibold text-gray-700">Membre depuis</dt>
                 <dd className="text-sm text-festival-dark text-right">
                   {profile?.created_at ? (
                     <>
                       <span className="font-medium">{memberSince(profile.created_at)}</span>
-                      <span className="block text-xs text-gray-400">
+                      <span className="block text-sm text-gray-600">
                         {new Date(profile.created_at).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
                       </span>
                     </>
@@ -251,7 +251,7 @@ export default function ProfilClient({
 
               {/* Newsletter */}
               <div className="flex justify-between items-center py-2">
-                <dt className="text-sm font-semibold text-gray-500">Newsletter</dt>
+                <dt className="text-sm font-semibold text-gray-700">Newsletter</dt>
                 <dd>
                   <button
                     role="switch"
@@ -299,8 +299,8 @@ export default function ProfilClient({
           ) : (
             <div className="card text-center py-12">
               <p className="text-4xl mb-3">❤️</p>
-              <p className="text-gray-500">Aucun favori pour l'instant.</p>
-              <p className="text-sm text-gray-400 mt-1">Parcourez les stands et ajoutez vos préférés !</p>
+              <p className="text-gray-600">Aucun favori pour l'instant.</p>
+              <p className="text-sm text-gray-600 mt-1">Parcourez les stands et ajoutez vos préférés !</p>
             </div>
           )}
         </section>
@@ -311,7 +311,7 @@ export default function ProfilClient({
           <h2 id="tampon-title" className="text-xl font-bold text-festival-dark mb-4">
             Carte tampon 🎯
           </h2>
-          <p className="text-sm text-gray-500 mb-6">
+          <p className="text-sm text-gray-600 mb-6">
             Faites tamponner votre carte à chaque stand pour compléter votre collection !
           </p>
 
@@ -322,7 +322,7 @@ export default function ProfilClient({
             <div className="text-4xl font-extrabold text-primary mb-1">
               {simStamps} / {SIM_MAX}
             </div>
-            <p className="text-gray-500 text-sm mb-4">stands visités</p>
+            <p className="text-gray-600 text-sm mb-4">stands visités</p>
 
             <div className="h-3 bg-gray-200 rounded-full overflow-hidden mb-6">
               <div
@@ -349,7 +349,7 @@ export default function ProfilClient({
                 ))}
               </div>
             ) : (
-              <p className="text-sm text-gray-400">Aucun tampon encore — visitez les stands !</p>
+              <p className="text-sm text-gray-600">Aucun tampon encore — visitez les stands !</p>
             )}
           </div>
         </section>

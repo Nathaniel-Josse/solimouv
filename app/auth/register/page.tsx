@@ -12,7 +12,7 @@ export default function RegisterPage() {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <span className="text-5xl">🎉</span>
-          <h1 className="text-3xl font-extrabold text-festival-dark mt-3">Créer un compte</h1>
+          <h1 className="text-3xl font-extrabold text-festival-dark mt-3">Crée un compte pour t'inscrire à l'événement !</h1>
           <p className="text-gray-500 mt-1">Rejoignez la communauté Solimouv'</p>
         </div>
         <div className="card">

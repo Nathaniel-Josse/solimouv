@@ -1,9 +1,25 @@
 import type { Metadata, Viewport } from 'next'
+import localFont from 'next/font/local'
 import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import PWAInstallPrompt from '@/components/PWAInstallPrompt'
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration'
+
+const bricolage = localFont({
+  src: '../public/fonts/BricolageGrotesque.ttf',
+  variable: '--font-bricolage',
+  display: 'swap',
+})
+
+const luciole = localFont({
+  src: [
+    { path: '../public/fonts/Luciole-Regular.woff2', weight: '400', style: 'normal' },
+    { path: '../public/fonts/Luciole-Bold.woff2', weight: '700', style: 'normal' },
+  ],
+  variable: '--font-luciole',
+  display: 'swap',
+})
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://solimouv.fr'
 
@@ -26,16 +42,8 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: 'Solimouv\'',
     title: 'Solimouv\' — Festival Up Sport!',
-    description:
-      'Festival annuel sport & inclusion à Paris — pour tous, sans exception.',
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Solimouv\' Festival Up Sport!',
-      },
-    ],
+    description: 'Festival annuel sport & inclusion à Paris — pour tous, sans exception.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Solimouv\' Festival Up Sport!' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -44,28 +52,20 @@ export const metadata: Metadata = {
     images: ['/og-image.png'],
     creator: '@upsport',
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true },
-  },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   manifest: '/manifest.webmanifest',
 }
 
 export const viewport: Viewport = {
-  themeColor: '#E84C1D',
+  themeColor: '#FF4F1F',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr">
+    <html lang="fr" className={`${bricolage.variable} ${luciole.variable}`}>
       <head>
         <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png" />
