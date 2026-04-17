@@ -16,7 +16,7 @@ export default function SportMatchingPage() {
           <strong>quelques questions</strong>
           {' '} et découvre le sport fait pour toi !
         </p>
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-gray-600">
           Quiz 100% anonyme — aucune donnée enregistrée
         </p>
       </header>

@@ -143,7 +143,7 @@ export default function RegisterForm() {
         />
         <label htmlFor="terms" className="text-sm text-gray-600">
           J'ai lu et j'accepte les{' '}
-          <Link href="/mentions-legales" target="_blank" className="text-primary font-semibold hover:underline">
+          <Link href="/mentions-legales" target="_blank" className="text-primary font-semibold underline">
             mentions légales et la politique de confidentialité
           </Link>{' '}
           <span className="text-red-500">*</span>
@@ -160,7 +160,7 @@ export default function RegisterForm() {
 
       <p className="text-center text-sm text-gray-600">
         Déjà un compte ?{' '}
-        <Link href="/auth/login" className="text-primary font-semibold hover:underline">
+        <Link href="/auth/login" className="text-primary font-semibold underline">
           Se connecter
         </Link>
       </p>

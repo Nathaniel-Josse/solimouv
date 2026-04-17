@@ -63,7 +63,7 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
               {String(value).padStart(2, '0')}
             </span>
           </div>
-          <span className="text-xs sm:text-sm mt-2 font-medium opacity-80">{label}</span>
+          <span className="text-sm mt-2 font-medium opacity-80">{label}</span>
         </div>
       ))}
     </div>

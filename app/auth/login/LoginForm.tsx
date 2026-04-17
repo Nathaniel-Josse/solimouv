@@ -79,7 +79,7 @@ export default function LoginForm() {
 
       <p className="text-center text-sm text-gray-600">
         Pas encore de compte ?{' '}
-        <Link href="/auth/register" className="text-primary font-semibold hover:underline">
+        <Link href="/auth/register" className="text-primary font-semibold underline">
           S'inscrire
         </Link>
       </p>

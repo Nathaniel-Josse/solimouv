@@ -48,19 +48,19 @@ export default function PWAInstallPrompt() {
       <span className="text-3xl">📱</span>
       <div className="flex-1">
         <p className="font-semibold text-sm">Installer Solimouv'</p>
-        <p className="text-xs text-gray-300 mt-1">
+        <p className="text-sm text-gray-300 mt-1">
           Ajoutez l'appli sur votre écran d'accueil pour un accès rapide !
         </p>
         <div className="flex gap-2 mt-3">
           <button
             onClick={handleInstall}
-            className="bg-primary text-white text-xs font-semibold px-3 py-1.5 rounded-lg hover:bg-primary-dark transition-colors"
+            className="bg-primary text-white text-sm font-semibold px-3 py-1.5 rounded-lg hover:bg-primary-dark transition-colors"
           >
             Installer
           </button>
           <button
             onClick={handleDismiss}
-            className="text-gray-400 text-xs font-medium px-3 py-1.5 rounded-lg hover:text-white transition-colors"
+            className="text-gray-400 text-sm font-medium px-3 py-1.5 rounded-lg hover:text-white transition-colors"
           >
             Plus tard
           </button>

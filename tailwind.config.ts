@@ -10,19 +10,19 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#E84C1D',
-          dark: '#C73D15',
-          light: '#FF6B3D',
+          DEFAULT: '#C83A0A',
+          dark: '#9B3008',
+          light: '#FF4F1F',
         },
         secondary: {
-          DEFAULT: '#7C3AED',
-          dark: '#6D28D9',
-          light: '#A78BFA',
+          DEFAULT: '#1C1917',
+          dark: '#0C0A09',
+          light: '#44403C',
         },
-        accent: {
-          DEFAULT: '#059669',
-          dark: '#047857',
-          light: '#34D399',
+        pink: {
+          DEFAULT: '#FFADC9',
+          light: '#FFD6E5',
+          dark: '#FF85AE',
         },
         festival: {
           warm: '#FFFBF7',
@@ -30,7 +30,11 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['var(--font-geist-sans)', 'system-ui', 'sans-serif'],
+        heading: ['var(--font-bricolage)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-luciole)', 'system-ui', 'sans-serif'],
+      },
+      borderRadius: {
+        card: '14px',
       },
       animation: {
         'bounce-slow': 'bounce 2s infinite',

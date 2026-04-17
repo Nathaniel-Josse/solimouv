@@ -48,7 +48,7 @@ export default function ProgrammeClient({
 
   return (
     <>
-      <p className="text-sm text-gray-500 mb-6">
+      <p className="text-sm text-gray-600 mb-6">
         {count} stand{count > 1 ? 's' : ''} {category ? `dans "${category}"` : 'au total'}
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -58,7 +58,7 @@ export default function ExhibitorCard({
           <button
             onClick={handleFavorite}
             className={`absolute top-2 right-2 p-2 rounded-full shadow-md transition-colors ${
-              fav ? 'bg-red-500 text-white' : 'bg-white text-gray-400 hover:text-red-400'
+              fav ? 'bg-red-500 text-white' : 'bg-white text-gray-500 hover:text-red-500'
             }`}
             aria-label={fav ? `Retirer ${exhibitor.name} des favoris` : `Ajouter ${exhibitor.name} aux favoris`}
             aria-pressed={fav}
@@ -79,7 +79,7 @@ export default function ExhibitorCard({
           </span>
         </div>
         {exhibitor.association_name && (
-          <p className="text-xs text-gray-500 font-medium">{exhibitor.association_name}</p>
+          <p className="text-sm text-gray-600 font-medium">{exhibitor.association_name}</p>
         )}
         <p className="text-sm text-gray-600 leading-relaxed line-clamp-3">{exhibitor.description}</p>
       </div>
