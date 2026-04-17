@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { createClient } from '@/lib/supabase/server'
-import ExhibitorCard from '@/components/ExhibitorCard'
 import ProgrammeFilters from './ProgrammeFilters'
+import ProgrammeClient from './ProgrammeClient'
 
 export const metadata: Metadata = {
   title: { absolute: "Programme et Ateliers | Solimouv' Festival" },
@@ -16,6 +16,8 @@ export default async function ProgrammePage({
   const { category } = await searchParams
   const supabase = await createClient()
 
+  const { data: { user } } = await supabase.auth.getUser()
+
   const { data: activeEvent } = await supabase
     .from('events')
     .select('*')
@@ -26,28 +28,42 @@ export default async function ProgrammePage({
   if (activeEvent) query = query.eq('event_id', activeEvent.id)
   if (category) query = query.eq('category', category)
 
-  const { data: exhibitors } = await query.order('name')
-
-  const { data: allExhibitors } = activeEvent
-    ? await supabase.from('exhibitors').select('category').eq('event_id', activeEvent.id)
-    : { data: [] }
+  const [{ data: exhibitors }, { data: allExhibitors }, { data: favoritesData }] =
+    await Promise.all([
+      query.order('name'),
+      activeEvent
+        ? supabase.from('exhibitors').select('category').eq('event_id', activeEvent.id)
+        : Promise.resolve({ data: [] }),
+      user
+        ? supabase.from('favorites').select('exhibitor_id').eq('user_id', user.id)
+        : Promise.resolve({ data: [] }),
+    ])
 
   const categoriesSet = new Set((allExhibitors || []).map((e: { category: string }) => e.category))
   const categories = Array.from(categoriesSet).filter(Boolean).sort()
+
+  const favoriteIds = (favoritesData || []).map((f: { exhibitor_id: string }) => f.exhibitor_id)
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
       {/* Header */}
       <header className="mb-10 text-center">
-        <h1 className="section-title text-4xl">Programme & Stands 🏟️</h1>
+        <h1 className="section-title text-4xl">Activités sportives gratuites à Paris</h1>
         {activeEvent ? (
-          <p className="section-subtitle">
-            {new Date(activeEvent.date).toLocaleDateString('fr-FR', {
-              weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
-            })} · {activeEvent.location}
-          </p>
+          <>
+            <p className="section-subtitle max-w-2xl mx-auto">
+              Découvrez toutes les activités sportives gratuites proposées lors du festival Solimouv'. Que vous veniez seul, en famille ou entre amis, explorez un programme conçu pour tous les niveaux, tous les âges et tous les profils. Ici, pas de pression : vous testez, vous découvrez, vous rencontrez.
+            </p>
+            <p className="text-sm text-gray-500 mt-2">
+              {new Date(activeEvent.date).toLocaleDateString('fr-FR', {
+                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+              })} · {activeEvent.location}
+            </p>
+          </>
         ) : (
-          <p className="section-subtitle">Le programme de la prochaine édition sera bientôt disponible.</p>
+          <p className="section-subtitle max-w-2xl mx-auto">
+            Découvrez toutes les activités sportives gratuites proposées lors du festival Solimouv'. Que vous veniez seul, en famille ou entre amis, explorez un programme conçu pour tous les niveaux, tous les âges et tous les profils. Ici, pas de pression : vous testez, vous découvrez, vous rencontrez.
+          </p>
         )}
       </header>
 
@@ -56,20 +72,18 @@ export default async function ProgrammePage({
 
       {/* Exhibitors grid */}
       {exhibitors && exhibitors.length > 0 ? (
-        <>
-          <p className="text-sm text-gray-500 mb-6">
-            {exhibitors.length} stand{exhibitors.length > 1 ? 's' : ''} {category ? `dans "${category}"` : 'au total'}
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {exhibitors.map((exhibitor) => (
-              <ExhibitorCard key={exhibitor.id} exhibitor={exhibitor} />
-            ))}
-          </div>
-        </>
+        <ProgrammeClient
+          exhibitors={exhibitors}
+          initialFavoriteIds={favoriteIds}
+          userId={user?.id ?? null}
+          count={exhibitors.length}
+          category={category}
+        />
       ) : (
         <div className="text-center py-20">
           <p className="text-5xl mb-4">🔍</p>
-          <p className="text-gray-500">Aucun stand trouvé {category ? `dans cette catégorie` : ''}.</p>
+          <p className="text-gray-500 font-medium mb-2">Aucune activité trouvée {category ? `dans cette catégorie` : ''}.</p>
+          <p className="text-sm text-gray-400">Le programme de la prochaine édition sera bientôt disponible.</p>
         </div>
       )}
     </div>

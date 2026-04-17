@@ -69,9 +69,12 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-sm text-gray-500">
           <p>© {currentYear} Up Sport! — Tous droits réservés</p>
-          <p>
-            Fait avec ❤️ pour l'inclusion sportive
-          </p>
+          <div className="flex items-center gap-4">
+            <Link href="/mentions-legales" className="hover:text-white transition-colors text-xs">
+              Mentions légales & Confidentialité
+            </Link>
+            <p>Fait avec ❤️ pour l'inclusion sportive</p>
+          </div>
         </div>
       </div>
     </footer>

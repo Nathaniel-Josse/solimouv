@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/client'
+import { createUserProfile } from '@/app/actions'
 
 export default function RegisterForm() {
   const router = useRouter()
@@ -11,6 +12,7 @@ export default function RegisterForm() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [newsletter, setNewsletter] = useState(false)
+  const [termsAccepted, setTermsAccepted] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [success, setSuccess] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -44,13 +46,7 @@ export default function RegisterForm() {
     }
 
     if (data.user) {
-      await supabase.from('users').upsert({
-        id: data.user.id,
-        email,
-        display_name: displayName,
-        role: 'user',
-        is_in_newsletter: newsletter,
-      })
+      await createUserProfile(data.user.id, email, displayName, newsletter)
     }
 
     setSuccess(true)
@@ -136,9 +132,27 @@ export default function RegisterForm() {
         </label>
       </div>
 
+      <div className="flex items-start gap-3">
+        <input
+          id="terms"
+          type="checkbox"
+          required
+          checked={termsAccepted}
+          onChange={(e) => setTermsAccepted(e.target.checked)}
+          className="mt-1 h-4 w-4 text-primary rounded border-gray-300 focus:ring-primary"
+        />
+        <label htmlFor="terms" className="text-sm text-gray-600">
+          J'ai lu et j'accepte les{' '}
+          <Link href="/mentions-legales" target="_blank" className="text-primary font-semibold hover:underline">
+            mentions légales et la politique de confidentialité
+          </Link>{' '}
+          <span className="text-red-500">*</span>
+        </label>
+      </div>
+
       <button
         type="submit"
-        disabled={loading}
+        disabled={loading || !termsAccepted}
         className="btn-primary w-full text-center disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {loading ? 'Création du compte...' : 'Créer mon compte'}
