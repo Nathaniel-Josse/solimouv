@@ -6,7 +6,7 @@ const STATIC_ASSETS = [
   '/associations',
   '/a-propos',
   '/contact',
-  '/manifest.json',
+  '/manifest.webmanifest',
 ]
 
 self.addEventListener('install', (event) => {

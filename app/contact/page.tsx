@@ -1,24 +1,28 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: { absolute: "Mon Compte | Solimouv' Festival" },
-  description: "Gérez votre participation au festival Solimouv' et retrouvez vos activités.",
+  title: { absolute: "Contact | Solimouv' Festival" },
+  description: "Contactez l'équipe Solimouv' pour toute question sur votre inscription, vos activités ou le festival.",
 }
 
 export default function ContactPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-12">
       <header className="text-center mb-12">
-        <h1 className="section-title text-4xl">Contact ✉️</h1>
-        <p className="section-subtitle text-lg">
-          Une question, une suggestion ou envie de nous rejoindre ?
+        <h1 className="section-title text-4xl">Contactez-nous</h1>
+        <p className="section-subtitle text-lg max-w-xl mx-auto">
+          Une question sur le festival Solimouv' ? Notre équipe est à votre écoute pour vous accompagner avant, pendant ou après l'événement.
         </p>
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Contact info */}
         <section aria-labelledby="info-title">
-          <h2 id="info-title" className="text-xl font-bold text-festival-dark mb-6">Nos coordonnées</h2>
+          <h2 id="info-title" className="text-xl font-bold text-festival-dark mb-4">Une question sur votre participation ?</h2>
+          <p className="text-sm text-gray-600 mb-6">
+            Vous pouvez nous contacter pour une question sur votre inscription, un problème lié à votre compte, des informations sur les activités ou une demande particulière.
+          </p>
           <div className="space-y-4">
             {[
               { icon: '📧', label: 'Email général', value: 'contact@upsport.fr', href: 'mailto:contact@upsport.fr' },
@@ -42,11 +46,20 @@ export default function ContactPage() {
               </div>
             ))}
           </div>
+
+          <div className="mt-6 p-4 bg-orange-50 border border-orange-200 rounded-xl">
+            <p className="text-sm font-semibold text-festival-dark mb-1">Besoin d'aide avec votre compte ?</p>
+            <p className="text-xs text-gray-600 mb-3">Gérez vos activités, consultez votre programme et retrouvez toutes vos informations en un seul endroit.</p>
+            <Link href="/profil" className="text-xs font-semibold text-primary hover:underline">
+              Accéder à mon compte →
+            </Link>
+          </div>
         </section>
 
         {/* Quick contact form */}
         <section aria-labelledby="form-title">
-          <h2 id="form-title" className="text-xl font-bold text-festival-dark mb-6">Message rapide</h2>
+          <h2 id="form-title" className="text-xl font-bold text-festival-dark mb-4">Formulaire de contact</h2>
+          <p className="text-sm text-gray-600 mb-6">Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.</p>
           <form
             action="mailto:contact@upsport.fr"
             method="get"
@@ -90,10 +103,10 @@ export default function ContactPage() {
               />
             </div>
             <button type="submit" className="btn-primary w-full text-center">
-              Envoyer via email ✉️
+              Envoyer ma demande ✉️
             </button>
             <p className="text-xs text-gray-500 text-center">
-              Ce formulaire ouvre votre client email.
+              Ce formulaire ouvre votre client email. Nous faisons le maximum pour vous répondre rapidement.
             </p>
           </form>
         </section>

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
+import { createAdminClient } from '@/lib/supabase/admin'
 import ProfilClient from './ProfilClient'
 
 export const metadata: Metadata = {
@@ -14,10 +15,25 @@ export default async function ProfilPage() {
 
   if (!user) redirect('/auth/login?redirectTo=/profil')
 
-  const [{ data: profile }, { data: activeEvent }] = await Promise.all([
+  const [{ data: rawProfile }, { data: activeEvent }] = await Promise.all([
     supabase.from('users').select('*').eq('id', user.id).single(),
     supabase.from('events').select('*').eq('is_active', true).single(),
   ])
+
+  let profile = rawProfile
+  if (!profile && user.email) {
+    const admin = createAdminClient()
+    await admin.from('users').upsert(
+      {
+        id: user.id,
+        email: user.email,
+        display_name: user.user_metadata?.display_name || user.email.split('@')[0],
+      },
+      { onConflict: 'id' }
+    )
+    const { data: created } = await supabase.from('users').select('*').eq('id', user.id).single()
+    profile = created
+  }
 
   const [{ data: registration }, { data: favorites }, { data: stampCard }] =
     await Promise.all([

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import CountdownTimer from '@/components/CountdownTimer'
 import ExhibitorCard from '@/components/ExhibitorCard'
+import PWAInstallButton from '@/components/PWAInstallButton'
 import { createClient } from '@/lib/supabase/server'
 
 export const metadata: Metadata = {
@@ -36,7 +37,7 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* Hero */}
+      {/* Hero — Bloc 1 */}
       <section
         className="relative bg-gradient-to-br from-primary via-primary-dark to-secondary text-white py-20 px-4 overflow-hidden"
         aria-labelledby="hero-title"
@@ -52,10 +53,11 @@ export default async function HomePage() {
             Association Up Sport! — Paris
           </p>
           <h1 id="hero-title" className="text-4xl sm:text-6xl font-extrabold mb-4 leading-tight">
-            Solimouv' 2026 🎉
+            Événement sportif à Paris : trouve ton sport, trouve ta place
           </h1>
           <p className="text-xl sm:text-2xl opacity-90 mb-8 max-w-2xl mx-auto">
-            Le festival sport & inclusion pour <strong>tous</strong>, sans exception — familles, jeunes, seniors, et toutes les communautés.
+            Seul ou accompagné, tu fais déjà partie de la famille.<br />
+            Découvre un festival de sport inclusif, accessible et ouvert à tous.
           </p>
 
           {activeEvent ? (
@@ -67,19 +69,22 @@ export default async function HomePage() {
             </div>
           ) : (
             <div className="mb-8">
-              <p className="text-orange-200 mb-4 text-sm font-medium">
-                📍 Paris, France · Été 2026
+              <p className="text-orange-200 mb-2 text-sm font-medium">
+                📍 Paris, France · 6 juin 2026
+              </p>
+              <p className="text-orange-100 text-sm mb-4">
+                Le festival du sport pour tous arrive à Paris. Viens découvrir, tester et partager une expérience unique.
               </p>
               <CountdownTimer targetDate={FESTIVAL_DATE} />
             </div>
           )}
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/auth/register" className="btn-primary bg-white !text-primary hover:bg-orange-50 text-center">
-              S'inscrire au festival
+            <Link href="/programme" className="btn-primary bg-white !text-primary hover:bg-orange-50 text-center">
+              Je découvre les activités
             </Link>
-            <Link href="/programme" className="btn-outline !border-white !text-white hover:!bg-white/20 text-center">
-              Voir le programme
+            <Link href="/auth/register" className="btn-outline !border-white !text-white hover:!bg-white/20 text-center">
+              Je m'inscris au festival
             </Link>
           </div>
         </div>
@@ -103,12 +108,14 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Featured exhibitors */}
+      {/* Featured exhibitors — Bloc 2 */}
       {featuredExhibitors && featuredExhibitors.length > 0 && (
         <section className="py-16 px-4 max-w-7xl mx-auto" aria-labelledby="stands-title">
           <div className="text-center mb-10">
-            <h2 id="stands-title" className="section-title">Stands à la une 🏅</h2>
-            <p className="section-subtitle">Découvrez quelques-uns des stands qui seront présents cette année</p>
+            <h2 id="stands-title" className="section-title">Des activités sportives pour tous les profils</h2>
+            <p className="section-subtitle max-w-2xl mx-auto">
+              Boxe, danse, fitness, sports adaptés, activités collectives… Peu importe ton niveau ou ton expérience, il y a forcément une activité pour toi. Ici, on ne vient pas performer. On vient essayer, découvrir et prendre plaisir.
+            </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredExhibitors.map((exhibitor) => (
@@ -117,37 +124,39 @@ export default async function HomePage() {
           </div>
           <div className="text-center mt-8">
             <Link href="/programme" className="btn-primary">
-              Voir tous les stands
+              Je trouve mon activité
             </Link>
           </div>
         </section>
       )}
 
-      {/* CTA Registration */}
+      {/* CTA Registration — Bloc 4 */}
       <section className="bg-secondary text-white py-16 px-4" aria-labelledby="cta-title">
         <div className="max-w-3xl mx-auto text-center">
           <h2 id="cta-title" className="text-3xl font-extrabold mb-4">
-            Rejoins l'aventure Solimouv' ! 🚀
+            Rejoins l'aventure Solimouv'
           </h2>
           <p className="text-purple-200 text-lg mb-8">
-            Inscription gratuite — venez nombreux avec famille et amis. Places limitées, inscrivez-vous dès maintenant !
+            Inscris-toi dès maintenant pour participer au festival, accéder aux activités et recevoir toutes les infos. Crée ton compte, choisis tes activités et vis l'expérience pleinement.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/auth/register" className="btn-primary bg-white !text-secondary hover:bg-purple-50 text-center">
-              Créer mon compte
+              Je m'inscris
             </Link>
             <Link href="/sport-matching" className="btn-outline !border-white !text-white hover:!bg-white/20 text-center">
-              Trouver mon sport 🎯
+              Je découvre mon profil sportif 🎯
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Past editions */}
+      {/* Past editions — Bloc 5 */}
       <section className="py-16 px-4 max-w-5xl mx-auto" aria-labelledby="editions-title">
         <div className="text-center mb-10">
-          <h2 id="editions-title" className="section-title">Éditions passées 📚</h2>
-          <p className="section-subtitle">L'histoire de Solimouv' en quelques chiffres</p>
+          <h2 id="editions-title" className="section-title">Ils ont vécu Solimouv'</h2>
+          <p className="section-subtitle max-w-2xl mx-auto">
+            Des centaines de participants, des dizaines d'activités et surtout des rencontres. Parce qu'ici, on ne vient pas seulement faire du sport, on vient partager un moment et créer du lien.
+          </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {pastEditions.map((ed) => (
@@ -157,6 +166,31 @@ export default async function HomePage() {
               <p className="text-sm font-medium text-gray-700">{ed.highlights}</p>
             </article>
           ))}
+        </div>
+        <div className="text-center mt-10">
+          <p className="text-lg font-semibold text-festival-dark mb-4">Et si c'était à ton tour ?</p>
+          <Link href="/programme" className="btn-primary">
+            Je découvre le festival
+          </Link>
+        </div>
+      </section>
+
+      {/* PWA — Bloc 6 */}
+      <section className="bg-festival-dark text-white py-16 px-4" aria-labelledby="pwa-title">
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="text-5xl mb-4">📱</div>
+          <h2 id="pwa-title" className="text-3xl font-extrabold mb-4">
+            Le festival dans ta poche
+          </h2>
+          <p className="text-gray-300 text-lg mb-8 max-w-xl mx-auto">
+            Ajoute Solimouv' à ton téléphone et accède à ton programme personnalisé, tes favoris et ton parcours en temps réel. Une expérience simple, rapide et pensée pour toi.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <PWAInstallButton className="btn-primary bg-white !text-festival-dark hover:bg-gray-100 text-center" />
+            <Link href="/programme" className="btn-outline !border-white !text-white hover:!bg-white/20 text-center">
+              Accéder à la web app
+            </Link>
+          </div>
         </div>
       </section>
     </>

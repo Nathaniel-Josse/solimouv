@@ -26,6 +26,7 @@ export default function ExhibitorCard({
   showFavoriteButton = true,
 }: ExhibitorCardProps) {
   const [fav, setFav] = useState(isFavorite)
+  const [imgError, setImgError] = useState(false)
 
   const handleFavorite = () => {
     setFav(!fav)
@@ -38,7 +39,7 @@ export default function ExhibitorCard({
     <article className="card flex flex-col gap-4 hover:shadow-lg transition-shadow">
       {/* Image */}
       <div className="relative h-40 rounded-xl overflow-hidden bg-orange-50">
-        {exhibitor.picture_url ? (
+        {exhibitor.picture_url && !imgError ? (
           <Image
             src={exhibitor.picture_url}
             alt={`Stand ${exhibitor.name}`}
@@ -46,6 +47,7 @@ export default function ExhibitorCard({
             className="object-cover"
             loading="lazy"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            onError={() => setImgError(true)}
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-5xl">

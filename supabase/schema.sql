@@ -141,9 +141,10 @@ alter table public.favorites enable row level security;
 alter table public.stamp_cards enable row level security;
 alter table public.stamp_entries enable row level security;
 
--- Users: read own, admin reads all
+-- Users: read own, update own, insert own, admin reads all
 create policy "users: read own" on public.users for select using (auth.uid() = id);
 create policy "users: update own" on public.users for update using (auth.uid() = id);
+create policy "users: insert own" on public.users for insert with check (auth.uid() = id);
 create policy "users: admin read all" on public.users for select using (
   exists (select 1 from public.users u where u.id = auth.uid() and u.role = 'admin')
 );
